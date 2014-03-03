@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEtat_MobileTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEtat_MobileLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{etat_MobileController.selected.id}" title="#{bundle.CreateEtat_MobileTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateEtat_MobileLabel_libelle}" for="libelle" />
+                    <h:inputText id="libelle" value="#{etat_MobileController.selected.libelle}" title="#{bundle.CreateEtat_MobileTitle_libelle}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{etat_MobileController.create}" value="#{bundle.CreateEtat_MobileSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{etat_MobileController.prepareList}" value="#{bundle.CreateEtat_MobileShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEtat_MobileIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

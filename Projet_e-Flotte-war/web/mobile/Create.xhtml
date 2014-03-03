@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMobileTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMobileLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{mobileController.selected.id}" title="#{bundle.CreateMobileTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateMobileLabel_libelle}" for="libelle" />
+                    <h:inputText id="libelle" value="#{mobileController.selected.libelle}" title="#{bundle.CreateMobileTitle_libelle}" />
+                    <h:outputLabel value="#{bundle.CreateMobileLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{mobileController.selected.description}" title="#{bundle.CreateMobileTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateMobileLabel_id_gps}" for="id_gps" />
+                    <h:inputText id="id_gps" value="#{mobileController.selected.id_gps}" title="#{bundle.CreateMobileTitle_id_gps}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mobileController.create}" value="#{bundle.CreateMobileSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mobileController.prepareList}" value="#{bundle.CreateMobileShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMobileIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
