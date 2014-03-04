@@ -2608,10 +2608,40 @@ var App = function () {
 	} 
 	/*-----------------------------------------------------------------------------------*/
 	/*	Handles flot charts in dashboard
-	/*-----------------------------------------------------------------------------------*/	
+	/*-----------------------------------------------------------------------------------*/
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Handles vertically growing bars
+	/*-----------------------------------------------------------------------------------*/
+	var handleVerticalChart = function () {
+		if($('.verticalChart')) {		
+			$('.singleBar').each(function(){				
+				var percent = $(this).find('.value span').html();				
+				$(this).find('.value').animate({height:percent}, 2000, function() {					
+					$(this).find('span').fadeIn();				 
+				});				
+			});
+		}
+	}
 	/*-----------------------------------------------------------------------------------*/
 	/*	Handles theme skin switches
-	/*-----------------------------------------------------------------------------------*/	
+	/*-----------------------------------------------------------------------------------*/
+	var handleThemeSkins = function () {
+		// Handle theme colors
+        var setSkin = function (color) {
+            $('#skin-switcher').attr("href", "css/themes/" + color + ".css");
+            $.cookie('skin_color', color);
+        }
+		$('ul.skins > li a').click(function () {
+            var color = $(this).data("skin");
+            setSkin(color);
+        });
+		
+		//Check which theme skin is set
+		 if ($.cookie('skin_color')) {
+            setSkin($.cookie('skin_color'));
+        }
+	}
 	/*-----------------------------------------------------------------------------------*/
 	/*	Handles Gritter on Load
 	/*-----------------------------------------------------------------------------------*/
@@ -2910,7 +2940,8 @@ var App = function () {
 			handleAlerts(); //Function to handle alerts
 			handleCustomTabs(); //Function to handle min-height of custom tabs
 			handleGoToTop(); 	//Funtion to handle goto top buttons
-			handleNavbarFixedTop();		//Function to check & handle if navbar is fixed top			
+			handleNavbarFixedTop();		//Function to check & handle if navbar is fixed top
+			handleThemeSkins();		//Function to handle theme skins
         },
 
         //Set page
