@@ -2629,7 +2629,7 @@ var App = function () {
 	var handleThemeSkins = function () {
 		// Handle theme colors
         var setSkin = function (color) {
-            $('#skin-switcher').attr("href", "css/themes/" + color + ".css");
+            $('#skin-switcher').attr("href", "resources/css/themes/" + color + ".css");
             $.cookie('skin_color', color);
         }
 		$('ul.skins > li a').click(function () {
