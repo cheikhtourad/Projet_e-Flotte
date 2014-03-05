@@ -2654,7 +2654,7 @@ var App = function () {
             setTimeout(function () {
                 var unique_id = $.gritter.add({
                     // (string | mandatory) the heading of the notification
-                    title: 'Welcome to Cloud Admin!',
+                    title: 'Welcome to Cloud Admin! remove that (location: script file)',
                     // (string | mandatory) the text inside the notification
                     text: 'Cloud is a feature-rich Responsive Admin Dashboard Template with a wide array of plugins!',
                     // (string | optional) the image to display on the left
